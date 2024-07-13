@@ -1,19 +1,21 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { AboutComponent } from './about/about.component';
 import { LoginComponent } from './login/login.component';
-import { CarroComponent } from './carro/carro.component';
+import { HabitacionesComponent } from './habitaciones/habitaciones.component';
+import { ReservasComponent } from './reservas/reservas.component';
+import { SignupComponent } from './signup/signup.component';
 
 export const routes: Routes = [
     { path: 'home',
       component: HomeComponent,
       children: [
-        { path: 'carro', component: CarroComponent },
-        { path: 'about', component: AboutComponent }
+        { path: 'habitaciones', component: HabitacionesComponent },
+        { path: 'reservas', component: ReservasComponent }
       ]
     },
-    /* { path: 'about', component: AboutComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'singup', component: SignupComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full'}
+     /* { path: 'about', component: AboutComponent },
     { path: 'carro', component: CarroComponent}, */
-    { path: '', component: LoginComponent},/*
-    { path: '', redirectTo: 'login', pathMatch: 'full'} */
 ];

@@ -2,21 +2,17 @@ import { Component, inject } from '@angular/core';
 import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
+  selector: 'app-signup',
   standalone: true,
   imports: [RouterOutlet, RouterModule],
-  templateUrl: './login.component.html',
-  styleUrl: './login.component.css'
+  templateUrl: './signup.component.html',
+  styleUrl: './signup.component.css'
 })
-export class LoginComponent {
+export class SignupComponent {
   router = inject(Router)
   Loading: boolean = false;
 
-  navigateSingup() {
-    this.router.navigate(['/singup'])
-  }
-
-  Loging() {
-    this.Loading = true;
+  navigateLogin() {
+    this.router.navigate(['/login'])
   }
 }
