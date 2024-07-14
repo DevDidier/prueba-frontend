@@ -1,7 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HabitacionesService } from '../services/habitaciones.service';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
+
+export interface Habitacion {
+  id: number;
+  nombre: string;
+  valor: number;
+  imagen: string;
+}
+
 @Component({
   selector: 'app-habitaciones',
   standalone: true,
@@ -9,14 +17,21 @@ import { RouterLink } from '@angular/router';
   templateUrl: './habitaciones.component.html',
   styleUrl: './habitaciones.component.css'
 })
-export class HabitacionesComponent {
+export class HabitacionesComponent implements OnInit {
   Loading: boolean = true;
-  habitaciones$ = this.habitacionesService.getHabitaciones();
+  habitaciones: Habitacion[] = [];
 
   constructor(private habitacionesService: HabitacionesService) {
-    this.habitaciones$.subscribe(
-      () => { this.Loading = false; },
-      () => { this.Loading = false; }
+  }
+
+  ngOnInit(): void {
+    this.habitacionesService.getHabitaciones().subscribe(
+      (response: any) => {
+        console.log("response", response)
+        this.habitaciones = response;
+        this.Loading = false;
+      }
     );
   }
+  
 }

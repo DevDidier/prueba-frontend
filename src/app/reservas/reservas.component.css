@@ -30,3 +30,7 @@
   .alertError:hover {
     background-color: rgb(105, 1, 1);
   }
+
+  ::ng-deep .cdk-overlay-container {
+    z-index: 1200;
+  }
