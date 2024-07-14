@@ -18,12 +18,12 @@ export class HomeComponent {
     this.router.navigate(['/login'])
   }
 
-  ngOnInit() {
+/*   ngOnInit() {
     const tokenExiste = this.getCookie();
     if (!tokenExiste) {
       this.navigateToLogin();
     }
-  }
+  } */
   
   getCookie() {
     const valorToken = this.cookieService.get('token');

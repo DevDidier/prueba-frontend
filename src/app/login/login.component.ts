@@ -73,7 +73,6 @@ export class LoginComponent {
           } else {
             this.setAlert('Error al iniciar sesión', 'alertError');
           }
-          this.setAlert('Problemas en el servidor, intente nuevamente', 'alertError');
         }
       );
     } else {

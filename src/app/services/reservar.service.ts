@@ -21,24 +21,15 @@ export class ReservarService {
     data: {
       idUser: number,
       idRoom: number,
-      fechaini: string, 
+      fechaini: string,
       fechafin: string
     }, 
     token: string
-    ): Observable<any> {
-
-      const headers = new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${token}`
-      });
-
-      return this._http.post<ReservaResponse>(this.apiUrl, data, { headers }).pipe(
-        map(response => {
-          return response;
-        }),
-        catchError(error => {
-          return "Error";
-        })
-      );
+  ) {
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+    return this._http.post(this.apiUrl, data, { headers })
   }
 }

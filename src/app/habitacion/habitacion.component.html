@@ -4,33 +4,46 @@
     </div>
 </div>
 <div *ngIf="!Loading">
-    <div *ngIf="!Loading" class="habitacion-container">
-      <img *ngIf="habitacion?.imagen" [src]="habitacion.imagen" alt="Imagen de la habitación" class="habitacion-imagen">
-      <h2 *ngIf="habitacion?.nombre" class="habitacion-nombre">{{ habitacion.nombre }}</h2>
-      <p *ngIf="habitacion?.descripcion" class="habitacion-descripcion">{{ habitacion.descripcion }}</p>
+  <div *ngIf="!Loading" class="habitacion-container">
+    <img *ngIf="habitacion?.imagen" [src]="habitacion.imagen" alt="Imagen de la habitación" class="habitacion-imagen">
+    <h2 *ngIf="habitacion?.nombre" class="habitacion-nombre">{{ habitacion.nombre }}</h2>
+    <p *ngIf="habitacion?.descripcion" class="habitacion-descripcion">{{ habitacion.descripcion }}</p>
 
-      <mat-form-field appearance="fill">
-        <mat-label>Elije un rango de fechas</mat-label>
-        <mat-date-range-input [min]="minDate" [rangePicker]="picker" [dateFilter]="isDateRangeAvailable">
-          <input matStartDate placeholder="Fecha de inicio">
-          <input matEndDate placeholder="Fecha de fin">
-        </mat-date-range-input>
-        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-        <mat-date-range-picker #picker></mat-date-range-picker>
-      </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Elije un rango de fechas</mat-label>
+      <mat-date-range-input [min]="minDate" [rangePicker]="picker" [dateFilter]="isDateRangeAvailable">
+        <input matStartDate [(ngModel)]="startDate" placeholder="Fecha de inicio">
+        <input matEndDate [(ngModel)]="endDate" placeholder="Fecha de fin">
+      </mat-date-range-input>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-date-range-picker #picker></mat-date-range-picker>
+    </mat-form-field>
 
-      <div style="font-weight:bold;color: grey;width:70%; text-align: center;">
-        <p>
-            !Las fechas opacas o que no se permiten seleccionar
-            son fechas que ya estan reservadas.¡
-        </p>
-      </div>
-
-      <button class="reservar-btn">Reservar</button>
+    <div style="font-weight:bold;color: grey;width:70%; text-align: center;">
+      <p>
+        !Las fechas opacas o que no se permiten seleccionar
+        son fechas que ya estan reservadas.¡
+      </p>
     </div>
+
+    <button class="reservar-btn" type="button" (click)="Reservar()" [disabled]="Loading">
+      @if (LoadingReq) {
+        <div class="spinner-grow text-light" style="height:1rem;width:1rem;" role="status">
+          <span class="visually-hidden">Cargando...</span>
+        </div>
+      } @else {
+        <div>Reservar</div>
+      }
+    </button>
+  </div>
+
+  <div *ngIf="alertMessage" [ngClass]="alertClass" class="alert" (click)="closeAlert()">
+    {{ alertMessage }}
+  </div>
 
   <p *ngIf="!habitacion">
     No se encontró la habitación.
   </p>
-
 </div>
+
+<div style="height: 400px;"></div>
