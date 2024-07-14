@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
-import { RouterModule, RouterOutlet } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-home',
@@ -10,5 +11,22 @@ import { RouterModule, RouterOutlet } from '@angular/router';
 })
 
 export class HomeComponent {
+  router = inject(Router);
+  constructor(private cookieService: CookieService) {}
 
+  navigateToLogin() {
+    this.router.navigate(['/login'])
+  }
+
+  ngOnInit() {
+    const tokenExiste = this.getCookie();
+    if (!tokenExiste) {
+      this.navigateToLogin();
+    }
+  }
+  
+  getCookie() {
+    const valorToken = this.cookieService.get('token');
+    return valorToken !== '';
+  }
 }

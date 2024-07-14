@@ -4,13 +4,15 @@ import { LoginComponent } from './login/login.component';
 import { HabitacionesComponent } from './habitaciones/habitaciones.component';
 import { ReservasComponent } from './reservas/reservas.component';
 import { SignupComponent } from './signup/signup.component';
+import { HabitacionComponent } from './habitacion/habitacion.component';
 
 export const routes: Routes = [
     { path: 'home',
       component: HomeComponent,
       children: [
         { path: 'habitaciones', component: HabitacionesComponent },
-        { path: 'reservas', component: ReservasComponent }
+        { path: 'reservas', component: ReservasComponent },
+        { path: 'habitacion/:id', component: HabitacionComponent },
       ]
     },
     { path: 'login', component: LoginComponent },

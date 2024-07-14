@@ -1,0 +1,54 @@
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .habitacion-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+  }
+  
+  .nombre {
+    font-weight: bold;
+    color: black;
+    font-size: medium;
+  }
+  
+  .valor {
+    color: blue;
+    font-weight: 600;
+  }
+  
+  .imagen {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  .ver-btn {
+    background-color: #3454d1;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 15px;
+    width: 50%;
+  }
+  
+  .ver-btn:hover {
+    background-color: #2b3e9e;
+  }
+  
+  @media (min-width: 768px) {
+    .cards-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }

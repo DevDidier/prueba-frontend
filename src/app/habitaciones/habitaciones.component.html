@@ -1,1 +1,26 @@
-<p>habitaciones works!</p>
+<!-- <pre>
+    {{habitaciones$ | async | json}}
+</pre> -->
+<div *ngIf="Loading; else loaded" style="text-align: center;">
+  <div class="spinner-border text-primary" style="margin-top:50px;height:10rem;width:10rem;" role="status">
+    <span class="visually-hidden">Cargando...</span>
+  </div>
+</div>
+  
+<ng-template #loaded>
+  <div *ngIf="habitaciones$ | async as habitaciones;">
+    <div *ngIf="habitaciones.error">
+      <p>{{ habitaciones.error }}</p>
+    </div>
+    <div *ngIf="!habitaciones.error">
+      <div class="cards-container">
+        <div *ngFor="let habitacion of habitaciones" class="habitacion-card">
+          <p class="nombre">{{ habitacion.nombre }}</p>
+          <p class="valor">{{ habitacion.valor | currency:'USD':'symbol':'1.0-0' }}</p>
+          <img [src]="habitacion.imagen" class="imagen"/>
+          <button class="ver-btn" [routerLink]="['/home/habitacion', habitacion.id]">Ver</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-template>

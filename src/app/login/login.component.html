@@ -3,9 +3,9 @@
       <div class="left">
           <div class="logo">Reservas Hotel</div>
           <h1>Bienvenido!</h1>
-          <form>
-              <input type="email" class="form-input" placeholder="Usuario">
-              <input type="password" class="form-input" placeholder="Contraseña">
+          <form [formGroup]="loginForm">
+              <input type="email" class="form-input" formControlName="username" placeholder="Usuario">
+              <input type="password" class="form-input" formControlName="password" placeholder="Contraseña">
               <button class="login" type="button" (click)="Loging()" [disabled]="Loading">
                 @if (Loading) {
                   <div class="spinner-grow text-light" style="height:1rem;width:1rem;" role="status">
@@ -17,6 +17,10 @@
               </button>
               <button class="signup" (click)="navigateSingup()">Registrarse</button>
           </form>
+
+          <div *ngIf="alertMessage" [ngClass]="alertClass" class="alert" (click)="closeAlert()">
+            {{ alertMessage }}
+          </div>
       </div>
       <div class="right">
 

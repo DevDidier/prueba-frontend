@@ -138,3 +138,32 @@ button {
 
   }
 }
+
+.alert {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 25px;
+  border-radius: 5px;
+  font-weight: bold;
+  color: white;
+  text-align: center;
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.alertOk {
+  background-color: green;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.alertOk:hover {
+  transform: translateY(-50%);
+}
+.alertError {
+  background-color: red;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.alertError:hover {
+  background-color: rgb(105, 1, 1);
+}
