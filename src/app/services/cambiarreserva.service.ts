@@ -7,7 +7,7 @@ import { HttpClient, HttpHeaders, HttpRequest } from '@angular/common/http';
 export class CambiarreservaService {
 
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/modificar_reserva';
+  private apiUrl = 'https://server.ladiestoys.com.co/modificar_reserva';
   
   constructor() { }
 

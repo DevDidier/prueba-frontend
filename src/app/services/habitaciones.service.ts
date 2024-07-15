@@ -14,7 +14,7 @@ export interface HabitacionesResponse {
 
 export class HabitacionesService {
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/habitaciones';
+  private apiUrl = 'https://server.ladiestoys.com.co/habitaciones';
 
   constructor() { }
   

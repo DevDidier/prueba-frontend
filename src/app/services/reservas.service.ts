@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class ReservasService {
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/misreservas';
+  private apiUrl = 'https://server.ladiestoys.com.co/misreservas';
 
   constructor() { }
 

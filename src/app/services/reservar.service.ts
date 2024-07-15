@@ -13,7 +13,7 @@ export interface ReservaResponse {
 })
 export class ReservarService {
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/reservar';
+  private apiUrl = 'https://server.ladiestoys.com.co/reservar';
   
   constructor() { }
 

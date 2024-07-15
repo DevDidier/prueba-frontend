@@ -13,7 +13,7 @@ export interface LoginResponse {
 })
 export class LoginService {
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/login';
+  private apiUrl = 'https://server.ladiestoys.com.co/login';
 
   constructor() { }
 

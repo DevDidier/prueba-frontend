@@ -13,7 +13,7 @@ export interface HabitacionResponse {
 })
 export class HabitacionService {
   private readonly _http = inject(HttpClient);
-  private apiUrl = 'https://localhost:7221/habitacion';
+  private apiUrl = 'https://server.ladiestoys.com.co/habitacion';
 
   constructor() { }
   
