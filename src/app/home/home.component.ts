@@ -29,4 +29,9 @@ export class HomeComponent {
     const valorToken = this.cookieService.get('token');
     return valorToken !== '';
   }
+
+  cerrarSesion() {
+    this.cookieService.delete('token');
+    this.router.navigate(['/login'])
+  }
 }
